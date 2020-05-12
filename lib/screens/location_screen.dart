@@ -120,8 +120,8 @@ class _LocationScreenState extends State<LocationScreen> {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Text(
-                  ' Wind $windSpeed Km/h',style: kMessageTextStyle.copyWith(
-                  fontSize: 40.0,
+                  ' Wind : $windSpeed Km/h',style: kMessageTextStyle.copyWith(
+                  fontSize: 35.0,
                 )
                 ),
               ),
