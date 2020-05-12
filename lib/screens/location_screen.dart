@@ -18,6 +18,7 @@ class _LocationScreenState extends State<LocationScreen> {
   String weatherIcon;
   String weatherMessage;
   String cityName;
+  double windSpeed;
 
   @override
   void initState() {
@@ -32,9 +33,12 @@ class _LocationScreenState extends State<LocationScreen> {
         weatherIcon = 'Error';
         weatherMessage = 'Unable to reach';
         cityName = '';
+        windSpeed =0;
         return;
       }
       var temp = weatherData['main']['temp'].toInt();
+      var wind = weatherData['wind']['speed'];
+      windSpeed = wind;
       temperature = temp;
       weatherMessage = weather.getMessage(temp);
       var conditon = weatherData['weather'][0]['id'];
@@ -109,7 +113,16 @@ class _LocationScreenState extends State<LocationScreen> {
                       weatherIcon,
                       style: kConditionTextStyle,
                     ),
+
                   ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text(
+                  ' Wind $windSpeed Km/h',style: kMessageTextStyle.copyWith(
+                  fontSize: 40.0,
+                )
                 ),
               ),
               Padding(
